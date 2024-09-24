@@ -18,27 +18,23 @@ class _SliverScreenState extends State<SliverScreen> {
           const SliverAppBar(
             title: Text('Sliver List and Grid'),
           ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              childCount: 5,
-              (_, index) {
-                return Container(
-                  height: 80,
-                  color: _randomColor,
-                );
-              },
-            ),
+          SliverList.builder(
+            itemCount: 5,
+            itemBuilder: (_, index) {
+              return Container(
+                height: 80,
+                color: _randomColor,
+              );
+            },
           ),
-          SliverGrid(
+          SliverGrid.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
             ),
-            delegate: SliverChildBuilderDelegate(
-              childCount: 10,
-              (_, index) {
-                return Container(color: _randomColor);
-              },
-            ),
+            itemCount: 10,
+            itemBuilder: (_, index) {
+              return Container(color: _randomColor);
+            },
           ),
         ],
       ),
